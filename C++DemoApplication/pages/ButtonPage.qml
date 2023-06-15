@@ -7,6 +7,7 @@ import QtQuick.Controls
 
 ScrollablePage {
     id: page
+    property int counter: 0
 
     Column {
         spacing: 40
@@ -16,8 +17,7 @@ ScrollablePage {
             width: parent.width
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHCenter
-            text: qsTr("Button presents a push-button that can be pushed or clicked by the user. "
-                + "Buttons are normally used to perform an action, or to answer a question.")
+            text: qsTr("Control the temperature by clicking on the corresponding button.")
         }
 
         ColumnLayout {
@@ -25,20 +25,22 @@ ScrollablePage {
             anchors.horizontalCenter: parent.horizontalCenter
 
             Button {
-                text: qsTr("First")
+                text: qsTr("Cold")
                 Layout.fillWidth: true
+                onClicked: {
+                    counter -= 1;
+                }
             }
             Button {
-                id: button
-                text: qsTr("Second")
-                highlighted: true
+                text: qsTr("Warm")
                 Layout.fillWidth: true
+                onClicked: {
+                    counter += 1;
+                }
             }
-            Button {
-                text: qsTr("Third")
-                enabled: false
-                Layout.fillWidth: true
-            }
+        }
+        Text {
+            text: "Temperature: " + counter
         }
     }
 }
