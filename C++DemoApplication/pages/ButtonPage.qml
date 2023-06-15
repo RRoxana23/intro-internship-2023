@@ -25,7 +25,7 @@ ScrollablePage {
             anchors.horizontalCenter: parent.horizontalCenter
 
             Button {
-                text: qsTr("First")
+                text: qsTr("Hello")
                 Layout.fillWidth: true
             }
             Button {
